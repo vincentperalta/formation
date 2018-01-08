@@ -53,20 +53,52 @@ else
 
 user.soispoli();
 
+
 function GetNom(nom, prenom, DisplayUpperCase){
 
-if (DisplayUpperCase == true)
-{
-    console.log(nom.toUpperCase() + " "  + prenom.toUpperCase())
+    if (DisplayUpperCase == true) {
+        console.log(nom.toUpperCase() + " "  + prenom.toUpperCase())
+    } else {
+        console.log(nom + " " + prenom)
+    }
 }
-else
-{
-    console.log(nom + " " + prenom)
-}
-
-}
-
 
 GetNom("Peralta", "Vincent", true);
 GetNom("Peralta", "Vincent", false);
 
+
+
+
+console.log("----------------------------------");
+
+
+
+let getdescription = function(){
+    return this.marque + " " + this.model + " " + this.motorisation  + " " + this.etat;
+}
+
+let avancer = function(){
+    this.etat = "Avance";
+    return "La voiture avance";
+}
+
+let arreter = function(){
+    this.etat = "Arret";
+    return "La voiture arrete";
+}
+
+let reculer = function(){
+    this.etat = "Recul";
+    return "La voiture recule";
+}
+
+
+let voitureFelix = {"marque" : "Citroen", "model" : "C4", "motorisation" : "essence", "etat" : "arret", "getdescription" : getdescription, "avancer" : avancer, "arreter" : arreter, "reculer" : reculer};
+
+console.log(voitureFelix.getdescription());
+console.log(voitureFelix.reculer());
+console.log(voitureFelix.getdescription());
+console.log(voitureFelix.avancer());
+console.log(voitureFelix.getdescription());
+console.log(voitureFelix.arreter());
+console.log(voitureFelix.getdescription());
