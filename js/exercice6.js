@@ -38,3 +38,25 @@ while( i < 2){
 for( let i=0; i<tabUsers.length; i++){
     console.log(tabUsers[i]);    
 }
+
+for( let i=10; i>-1; i--){
+    console.log(i);    
+}
+
+
+console.log("-----------------"); 
+
+i = 0;
+
+console.log(i); // 0   
+console.log(i++); // 0
+console.log(i); // 1
+console.log(++i); // 2
+console.log(i); // 2
+console.log(i*=2); // 
+console.log(i); // 4
+console.log(i+=2); // 6
+console.log(i-=2); // 4
+
+
+
