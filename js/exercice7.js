@@ -69,9 +69,9 @@ GetNom("Peralta", "Vincent", false);
 
 
 
+
+
 console.log("----------------------------------");
-
-
 
 let getdescription = function(){
     return this.marque + " " + this.model + " " + this.motorisation  + " " + this.etat;
@@ -91,7 +91,6 @@ let reculer = function(){
     this.etat = "Recul";
     return "La voiture recule";
 }
-
 
 let voitureFelix = {"marque" : "Citroen", "model" : "C4", "motorisation" : "essence", "etat" : "arret", "getdescription" : getdescription, "avancer" : avancer, "arreter" : arreter, "reculer" : reculer};
 
