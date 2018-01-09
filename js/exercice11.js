@@ -1,7 +1,4 @@
-
 let tbody = document.querySelector("tbody");
-//tbody.innerHTML += "<tr><td>a</td><td>a</td><td>38</td></tr>";
-
 
 let utilisateurs = [];
 
@@ -27,25 +24,24 @@ function purge(){
     tbody.innerHTML = "";
 }
 
-
 let purgeButton = document.querySelector("#purge2");
 purgeButton.onclick = function(){
     purge();
+    utilisateurs = [];
+
+
 }
 
-
 let addButton = document.querySelector("#addButton");
+
 addButton.onclick = function() {
 
     const nom = document.querySelector("#name").value;
     const firstname = document.querySelector("#firstname").value;
     const age = document.querySelector("#age").value;
 
-
     let userInsert = {"nom" : nom, "prenom" : firstname, "age" :age};
     utilisateurs.push(userInsert);
-
-
 
     //let tbody = document.querySelector("tbody");
     //tbody.innerHTML += "<tr><td>"+nom+"</td><td>"+firstname+"</td><td>"+age+"</td></tr>";
