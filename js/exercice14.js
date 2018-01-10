@@ -76,6 +76,16 @@
         $("#nbBateau").change(function(){    
 
             const nb = $("#nbBateau").val();
+            const nbBak = $("#nbbak").val();
+            
+
+            let infoBateauBak = [];
+
+            for(i=0; i<nbBak; i++){
+                infoBateauBak[i] = $("#bateau"+i).val();
+            }
+
+
 
             $("#detailBateau").empty();
 
@@ -83,6 +93,11 @@
                 $("#detailBateau").append('<div class="form-group row"><label for="bateau'+i+'" class="col-sm-2">bateau '+i+'</label><div class="col-sm-10"><input type="text" name="bateau'+i+'" id="bateau'+i+'"></div></div>');
             }
 
+            for(i=0; i<nb; i++){
+                $("#bateau"+i).val(infoBateauBak[i])
+            }
+            
+            $("#nbbak").val(nb);
         })        
 
 
