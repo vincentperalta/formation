@@ -6,13 +6,11 @@ function editUser(num){
     $("#name").val(utilisateurs[num].nom);
     $("#firstname").val(utilisateurs[num].prenom);
     $("#age").val(utilisateurs[num].age);
-
     $("#index").val(num);
 
-    //$("#addButton").
+    $("#addButton").text("Modifier");
 
 }
-
 
     $(document).ready(function(){
 
@@ -101,6 +99,7 @@ function editUser(num){
 
             console.log("edition");
 
+
             resetForm();
         }
 
@@ -115,6 +114,8 @@ function editUser(num){
         $("#age").val("");
 
         $("#index").val("-1");
+
+        $("#addButton").text("Ajouter");
     }
 
     $("#ModifyButton").click(function(){
@@ -129,8 +130,7 @@ function editUser(num){
 
         dessinTableau(utilisateurs);
 
-    })        
-
+    })  
 });
 
 
