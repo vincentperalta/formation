@@ -67,7 +67,7 @@
         })
 
         $("#addButton").click(function(){    
-            console.log("click button");
+            //console.log("click button");
 
             $("#page1").addClass("cache");
             $("#page2").removeClass("cache");
@@ -108,14 +108,55 @@
                             "age" : $("#age").val(), "codepostal" : $("#codepostal").val() , "ville" : $("#ville").val(), "nbbateau" : nb, "TailleBateau" : bateau };
 
                 
-                //data.interet = ($("#interet").val());
-
                 data.interets = [];
+                
                 $("#interet").val().forEach( interet => {                    
-                    data.interets.push(interet.toUpperCase());                
+                    data.interets.push(interet); //.toUpperCase());                
                 });
 
-                console.log(data);
+                $.ajax(
+                    {
+                        "url" : "http://localhost:8080/formation/register.php",
+                        "type" : "post",
+                        "data" : { "user" : JSON.stringify(data) }
+                        
+
+        
+                    }
+                    // si ça se passe bien
+                ).done(function(donnees){
+
+                    // Création  d'un tableau (page 3)
+                    // Avec l'affichage des dossiers
+                    // renvoyés par le serveur
+
+                    console.log(donnees);
+
+                    $("#page2").addClass("cache");
+                    $("#page3").removeClass("cache");   
+                    
+                    let tbody = $("tbody");    
+
+                    const nbDossier = donnees.length;
+
+                    for(j=0; j< nbDossier; j++){
+
+                        tbody.append("<tr><td>"+donnees[j].NumDossier+"</td><td>"+donnees[j].date["mday"]+"/"+donnees[j].date["mon"]+"/"+donnees[j].date["year"]+"</td><td>"+donnees[j].EtatDossier+"</td><td>"+donnees[j].sexe+"</td><td>"+donnees[j].name+"</td><td>"+donnees[j].name_jf+"</td><td>"+donnees[j].firstname+"</td><td>"+donnees[j].age+"</td><td>"+donnees[j].codepostal+"</td><td>"+donnees[j].ville+"</td><td>"+donnees[j].TailleBateau+"</td><td>"+donnees[j].assurance+"</td><td>"+donnees[j].complement+"</td></tr>");
+
+                    }
+
+
+                }
+                ).fail(function(){
+                    //console.log("Oups");
+                    
+                }
+                ).always(function(){
+                    //console.log("Toujours");
+                    
+                })
+
+
             }
         })
     });
