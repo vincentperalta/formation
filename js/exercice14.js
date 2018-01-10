@@ -106,7 +106,6 @@
 
                 let data = {"sexe" : $('input[name=sexe]:checked').val(), "name" : $("#name").val(), "name_jf" : $("#name_jf").val(), "firstname" : $("#firstname").val(), 
                             "age" : $("#age").val(), "codepostal" : $("#codepostal").val() , "ville" : $("#ville").val(), "nbbateau" : nb, "TailleBateau" : bateau };
-
                 
                 data.interets = [];
                 
@@ -119,9 +118,6 @@
                         "url" : "http://localhost:8080/formation/register.php",
                         "type" : "post",
                         "data" : { "user" : JSON.stringify(data) }
-                        
-
-        
                     }
                     // si ça se passe bien
                 ).done(function(donnees){
@@ -144,8 +140,6 @@
                         tbody.append("<tr><td>"+donnees[j].NumDossier+"</td><td>"+donnees[j].date["mday"]+"/"+donnees[j].date["mon"]+"/"+donnees[j].date["year"]+"</td><td>"+donnees[j].EtatDossier+"</td><td>"+donnees[j].sexe+"</td><td>"+donnees[j].name+"</td><td>"+donnees[j].name_jf+"</td><td>"+donnees[j].firstname+"</td><td>"+donnees[j].age+"</td><td>"+donnees[j].codepostal+"</td><td>"+donnees[j].ville+"</td><td>"+donnees[j].TailleBateau+"</td><td>"+donnees[j].assurance+"</td><td>"+donnees[j].complement+"</td></tr>");
 
                     }
-
-
                 }
                 ).fail(function(){
                     //console.log("Oups");
@@ -155,8 +149,6 @@
                     //console.log("Toujours");
                     
                 })
-
-
             }
         })
     });
